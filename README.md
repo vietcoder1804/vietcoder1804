@@ -1,11 +1,9 @@
 from geopy.geocoders import Nominatim
 import os,time
-# from tkinter import filedialog
 os.system('cls')
 print("TOOL GET QUỐC GIA")
 print("KẾT QUẢ SẼ ĐƯỢC LƯU RA FILE KETQUA.txt")
 input("BẤM ENTER ĐỂ CHỌN FILE CHỨA UID: ")
-# open_file = filedialog.askopenfilename(filetypes=[("Python files", "*.txt")])
 open_file = input("Input: ")
 file = open(open_file,"r",encoding="latin-1").readlines()
 time.sleep(1)
@@ -16,10 +14,10 @@ for s in file:
 	split_uid = s.split("|")[0]
 	split_du = s.split("|")[1]
 	split_country = split_du.split(",")
-	sp = split_country[0]
-	geolocator = Nominatim(user_agent="my_geocoder")
-	location = geolocator.geocode(sp)
 	try:
+		sp = split_country[0]
+		geolocator = Nominatim(user_agent="my_geocoder")
+		location = geolocator.geocode(sp)
 		kq = location.address
 		tach = str(kq).split(',')
 		a+=1
